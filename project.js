@@ -2,6 +2,7 @@
 
 let map, infoWindow;
 const COORDINATES = { lat: 44.2312, lng: -76.486 }
+var markers = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -12,65 +13,34 @@ function initMap() {
     var request = {
       location: COORDINATES,
       radius: '8000',
-      type: ['shelter']
+      query: "homeless shelter"
     };
   
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
 
-    infoWindow = new google.maps.InfoWindow();
-    const locationButton = document.createElement("button");
-    locationButton.textContent = "Pan to Current Location";
-    locationButton.classList.add("custom-map-control-button");
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-    locationButton.addEventListener("click", () => {
-      // Try HTML5 geolocation.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            infoWindow.setPosition(pos);
-            infoWindow.setContent("Location found.");
-            infoWindow.open(map);
-            map.setCenter(pos);
-          },
-          () => {
-            handleLocationError(true, infoWindow, map.getCenter());
-          }
-        );
-      } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-      }
-    });
-}
-  
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(
-      browserHasGeolocation
-        ? "Error: The Geolocation service failed."
-        : "Error: Your browser doesn't support geolocation."
-    );
-    infoWindow.open(map);
 }
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
+      createMarkers();
     }
-    console.log("callback");
 }
+function createMarkers() {
+  // put names into database so we can fetch
+  var names = ["Kingston Youth Shelter", "Ryndale Transitional Housing", "Kingston Interval House", "Rufina's Bridal", "Dawn House", "St. Vincent de Paul", "Elizabeth Fry"];
+  var positions = [{ lat: 44.231320, lng:-76.488060},{lat:44.240490,lng:-76.503150},{lat:44.249060, lng:-76.461210},{lat:44.235880,lng:-76.498390},{lat:44.252610,lng:-76.589130},{lat:44.24253475,lng:-76.49120845},{lat:44.23972,lng:-76.48811}];
 
-function createMarker(place) {
-    var placeLoc = place.geometry.location;
+  for (var i = 0; i < names.length; i++) {
     var marker = new google.maps.Marker({
       map: map,
-      position: place.geometry.location
+      position: positions[i]
     });
+
+    // this function doesn't currently work - needa way to fetch name of each marker
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.setContent(names[i]);
+      infoWindow.open(map,this);
+    });
+  }
 }
