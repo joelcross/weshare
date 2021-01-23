@@ -1,7 +1,7 @@
 /** Javascript file */ 
 
 let map, infoWindow;
-const COORDINATES = { lat: 44.2312, lng: -76.486 }
+const COORDINATES = { lat: 44.2429939, lng: -76.5188061 }
 var markers = [];
 
 function initMap() {
