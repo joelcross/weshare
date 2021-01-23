@@ -19,9 +19,10 @@ body {
   background: #fff;
 }
 
-/* CUSTOM */
+.map {
+  padding-bottom: 50px;
+}
 
-/* back to not custom */
 #page {
   position: relative;
   overflow-x: hidden;
@@ -114,7 +115,6 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 20px;
   margin: 0;
   padding: 0;
-  /* text-transform: uppercase; */
   font-weight: bold;
 }
 .gtco-nav #gtco-logo em {
