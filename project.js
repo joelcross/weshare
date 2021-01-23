@@ -27,6 +27,7 @@ function callback(results, status) {
     }
 }
 function createMarkers() {
+  // put names into database so we can fetch
   var names = ["Kingston Youth Shelter", "Ryndale Transitional Housing", "Kingston Interval House", "Rufina's Bridal", "Dawn House", "St. Vincent de Paul", "Elizabeth Fry"];
   var positions = [{ lat: 44.231320, lng:-76.488060},{lat:44.240490,lng:-76.503150},{lat:44.249060, lng:-76.461210},{lat:44.235880,lng:-76.498390},{lat:44.252610,lng:-76.589130},{lat:44.24253475,lng:-76.49120845},{lat:44.23972,lng:-76.48811}];
 
@@ -35,11 +36,9 @@ function createMarkers() {
       map: map,
       position: positions[i]
     });
-    console.log(i);
 
+    // this function doesn't currently work - needa way to fetch name of each marker
     google.maps.event.addListener(marker, 'click', function() {
-      console.log(i);
-      // why does the click intiate after? index becomes 7 which is null
       infoWindow.setContent(names[i]);
       infoWindow.open(map,this);
     });
