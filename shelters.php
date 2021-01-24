@@ -114,65 +114,69 @@
 				<h3>Shelters Near You</h3>
 			</div>
 			<div class="row">
-				
+
+            <!-- CARDS -->
+                <!-- Card 1 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
 							<img src="images/youthshelter.jpg" alt="Image" class="img-responsive">
 						</figure>
 						<div class="fh5co-text">
-							<h2>Kingston Youth Shelter</h2>
+							<h2 class="name">Kingston Youth Shelter</h2>
 							<p>234 Brock St, Kingston</p>
-							<p><span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">View Donation Times</span></p>
-							<?php
-                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
-                                    $locid = 0;
-                                    $sql = "select t.name
-                                    from   tag t
-                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
-                                    $stmt = $pdo->prepare($sql);   #create the query
-                                    $stmt->execute();   #bind the parameters
-                                    $dom = new DOMDocument('1.0', 'utf-8');
-                                    while ($row = $stmt->fetch()) {
-										$element = $dom->createElement('lbl', $row["name"]);
-                                        // We insert the new element as root (child of the document)
-                                        $dom->appendChild($element);
-                                    }
-                                    echo $dom->saveXML();
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal1">View Details</span></p>
+                            <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                $locid = 0;
+                                $sql = "select t.name
+                                from   tag t
+                                where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                $stmt = $pdo->prepare($sql);   #create the query
+                                $stmt->execute();   #bind the parameters
+                                $dom = new DOMDocument('1.0', 'utf-8');
+                                while ($row = $stmt->fetch()) {
+                                    $element = $dom->createElement('lbl', $row["name"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+                                }
+                                echo $dom->saveXML();
                             ?>
 						</div>
 					</a>
                 </div>
                 
+                <!-- Card 2 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
 							<img src="images/ryndale.jpg" alt="Image" class="img-responsive">
 						</figure>
 						<div class="fh5co-text">
-							<h2>Ryndale Transitional Housing</h2>
+							<h2 class="name">Ryndale Transitional Housing</h2>
 							<p>669 Victoria St, Kingston</p>
-							<p><span class="btn btn-primary">View Donation Times</span></p>
-							<?php
-                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
-                                    $locid = 1;
-                                    $sql = "select t.name
-                                    from   tag t
-                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
-                                    $stmt = $pdo->prepare($sql);   #create the query
-                                    $stmt->execute();   #bind the parameters
-                                    $dom = new DOMDocument('1.0', 'utf-8');
-                                    while ($row = $stmt->fetch()) {
-										$element = $dom->createElement('lbl', $row["name"]);
-                                        // We insert the new element as root (child of the document)
-                                        $dom->appendChild($element);
-                                    }
-                                    echo $dom->saveXML();
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal2">View Details</span></p>
+                            <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                $locid = 1;
+                                $sql = "select t.name
+                                from   tag t
+                                where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                $stmt = $pdo->prepare($sql);   #create the query
+                                $stmt->execute();   #bind the parameters
+                                $dom = new DOMDocument('1.0', 'utf-8');
+                                while ($row = $stmt->fetch()) {
+                                    $element = $dom->createElement('lbl', $row["name"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+                                }
+                                echo $dom->saveXML();
                             ?>
 						</div>
 					</a>
                 </div>
                 
+                <!-- Card 3 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
@@ -181,8 +185,8 @@
 						<div class="fh5co-text">
 							<h2>Kingston Interval House</h2>
 							<p>449 Princess St, Kingston</p>
-							<p><span class="btn btn-primary">View Donation Times</span></p>
-							<?php
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal3">View Details</span></p>
+                            <?php
                                     $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
                                     $locid = 2;
                                     $sql = "select t.name
@@ -200,35 +204,40 @@
                             ?>
 						</div>
 					</a>
-				</div>
+                </div>
+
+                <!-- Card 4 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
 							<img src="images/rufina.jpg" alt="Image" class="img-responsive">
 						</figure>
-						<div class="fh5co-text" style="padding-bottom: 2em;">
+						<div class="fh5co-text">
 							<h2>Rufina's Bridal</h2>
 							<p>561 1/2 Princess St, Kingston</p>
-							<p><span href="images/rufina.jpg" class="btn btn-primary">View Donation Times</span></p>
-							<?php
-                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
-                                    $locid = 3;
-                                    $sql = "select t.name
-                                    from   tag t
-                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
-                                    $stmt = $pdo->prepare($sql);   #create the query
-                                    $stmt->execute();   #bind the parameters
-                                    $dom = new DOMDocument('1.0', 'utf-8');
-                                    while ($row = $stmt->fetch()) {
-										$element = $dom->createElement('lbl', $row["name"]);
-                                        // We insert the new element as root (child of the document)
-                                        $dom->appendChild($element);
-                                    }
-                                    echo $dom->saveXML();
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal4">View Details</span></p>
+                            <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                $locid = 3;
+                                $sql = "select t.name
+                                from   tag t
+                                where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                $stmt = $pdo->prepare($sql);   #create the query
+                                $stmt->execute();   #bind the parameters
+                                $dom = new DOMDocument('1.0', 'utf-8');
+                                while ($row = $stmt->fetch()) {
+                                    $element = $dom->createElement('lbl', $row["name"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+                                }
+                                echo $dom->saveXML();
                             ?>
 						</div>
 					</a>
-				</div>
+					
+                </div>
+                
+                <!-- Card 5 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
@@ -237,26 +246,28 @@
 						<div class="fh5co-text">
 							<h2>Dawn House</h2>
 							<p>965 Milford Dr, Kingston</p>
-							<p><span class="btn btn-primary">View Donation Times</span></p>
-							<?php
-                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
-                                    $locid = 4;
-                                    $sql = "select t.name
-                                    from   tag t
-                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
-                                    $stmt = $pdo->prepare($sql);   #create the query
-                                    $stmt->execute();   #bind the parameters
-                                    $dom = new DOMDocument('1.0', 'utf-8');
-                                    while ($row = $stmt->fetch()) {
-										$element = $dom->createElement('lbl', $row["name"]);
-                                        // We insert the new element as root (child of the document)
-                                        $dom->appendChild($element);
-                                    }
-                                    echo $dom->saveXML();
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal5">View Details</span></p>
+                            <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                $locid = 4;
+                                $sql = "select t.name
+                                from   tag t
+                                where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                $stmt = $pdo->prepare($sql);   #create the query
+                                $stmt->execute();   #bind the parameters
+                                $dom = new DOMDocument('1.0', 'utf-8');
+                                while ($row = $stmt->fetch()) {
+                                    $element = $dom->createElement('lbl', $row["name"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+                                }
+                                echo $dom->saveXML();
                             ?>
 						</div>
 					</a>
-				</div>
+                </div>
+                
+                <!-- Card 6 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
@@ -265,26 +276,28 @@
 						<div class="fh5co-text">
 							<h2>St. Vincent de Paul Society</h2>
 							<p>85 Stephen St, Kingston</p>
-							<p><span class="btn btn-primary">View Donation Times</span></p>
-							<?php
-                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
-                                    $locid = 5;
-                                    $sql = "select t.name
-                                    from   tag t
-                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
-                                    $stmt = $pdo->prepare($sql);   #create the query
-                                    $stmt->execute();   #bind the parameters
-                                    $dom = new DOMDocument('1.0', 'utf-8');
-                                    while ($row = $stmt->fetch()) {
-										$element = $dom->createElement('lbl', $row["name"]);
-                                        // We insert the new element as root (child of the document)
-                                        $dom->appendChild($element);
-                                    }
-                                    echo $dom->saveXML();
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal6">View Details</span></p>
+                            <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                $locid = 5;
+                                $sql = "select t.name
+                                from   tag t
+                                where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                $stmt = $pdo->prepare($sql);   #create the query
+                                $stmt->execute();   #bind the parameters
+                                $dom = new DOMDocument('1.0', 'utf-8');
+                                while ($row = $stmt->fetch()) {
+                                    $element = $dom->createElement('lbl', $row["name"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+                                }
+                                echo $dom->saveXML();
                             ?>
 						</div>
 					</a>
-				</div>
+                </div>
+                
+                <!-- Card 7 -->
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
 						<figure>
@@ -293,26 +306,210 @@
 						<div class="fh5co-text">
 							<h2>Elizabeth Fry Kingston</h2>
 							<p>127 Charles St, Kingston</p>
-							<p><span class="btn btn-primary">View Donation Times</span></p>
-							<?php
-                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
-                                    $locid = 6;
-                                    $sql = "select t.name
-                                    from   tag t
-                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
-                                    $stmt = $pdo->prepare($sql);   #create the query
-                                    $stmt->execute();   #bind the parameters
-                                    $dom = new DOMDocument('1.0', 'utf-8');
-                                    while ($row = $stmt->fetch()) {
-										$element = $dom->createElement('lbl', $row["name"]);
-                                        // We insert the new element as root (child of the document)
-                                        $dom->appendChild($element);
-                                    }
-                                    echo $dom->saveXML();
+                            <p><span class="btn btn-primary" data-toggle="modal" data-target="#myModal7">View Details</span></p>
+                            <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                $locid = 6;
+                                $sql = "select t.name
+                                from   tag t
+                                where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                $stmt = $pdo->prepare($sql);   #create the query
+                                $stmt->execute();   #bind the parameters
+                                $dom = new DOMDocument('1.0', 'utf-8');
+                                while ($row = $stmt->fetch()) {
+                                    $element = $dom->createElement('lbl', $row["name"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+                                }
+                                echo $dom->saveXML();
                             ?>
 						</div>
 					</a>
-				</div>
+                </div>
+                
+                <!-- MODALS -->
+                <!-- Modal 1-->
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Kingston Youth Shelter</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/youthshelter.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="https://kingstonyouthshelter.com/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 2-->
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Ryndale Transitional Housing</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/ryndale.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="https://ryndale.ca/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 3-->
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Kingston Interval House</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/intervalhouse.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="http://kingstonintervalhouse.com/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 4-->
+                <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Rufina's Bridal</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/rufina.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="https://www.rufinasbridal.com/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 5-->
+                <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Dawn House</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/dawnhouse.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="https://www.dawnhouse.ca/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 6-->
+                <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">St. Vincent de Paul Society</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/stvincent.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="http://www.svdpkingston.com/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 7-->
+                <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Elizabeth Fry</h4>
+                            </div>
+                            <div class="modal-body">
+                                <figure>
+                                    <img src="images/elizabethfry.jpg" alt="Image" class="img-responsive">
+                                </figure>
+                                <h4>Hours</h4>
+                                    <p>Sun: 8:00am - 8:00pm</p>
+                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
+                                    <p>Sat: 8:00am - 8:00pm</p>
+                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
+                                <a href="https://www.efrykingston.ca/"><h4>Visit Website</h4></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 			</div>
 		</div>
 	</div>
