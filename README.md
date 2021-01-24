@@ -1,7 +1,8 @@
 # qhacks2021
+This project was created and designed by Catheirne Wu, Emily Zhao and Joel Cross in a 36-hour hacakthon, QHacks on January 22, 2021.
 
 ## weshare
-Welcome to weshare! A website 
+Welcome to weshare! A clothing donation resource platform.
 
 ## About weshare
 ### Our Mission
@@ -25,6 +26,9 @@ Gaining partnerships in our city and beyond.
 Storing partner's information in the SQL database.
 Build an interface for our partners, allowing them to easily update their own donation information.
 Expand our platform in the form of a mobile application.
+
+## Who we Are?
+
 
 
 
