@@ -117,7 +117,6 @@
                                     $dom = new DOMDocument('1.0', 'utf-8');
                                     while ($row = $stmt->fetch()) {
                                         $element = $dom->createElement('label', $row["name"]);
-    
                                         // We insert the new element as root (child of the document)
                                         $dom->appendChild($element);
                                         

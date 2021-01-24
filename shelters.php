@@ -105,6 +105,27 @@
 							<h2>Kingston Youth Shelter</h2>
 							<p>234 Brock St, Kingston</p>
 							<p><span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">View Donation Times</span></p>
+							<?php
+                                                                        $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 0;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+										
+										$element->addClass('s')
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                        
+                                        #echo "</td><td>".$row["name"]."</td></tr>,\n";
+                                    }
+                                    echo $dom->saveXML();
+                                    ?>
 						</div>
 					</a>
                 </div>
@@ -139,13 +160,14 @@
 						<figure>
 							<img src="images/rufina.jpg" alt="Image" class="img-responsive">
 						</figure>
-						<div class="fh5co-text">
+						<div class="fh5co-text" style="padding-bottom: 2em;">
 							<h2>Rufina's Bridal</h2>
 							<p>561 1/2 Princess St, Kingston</p>
 							<p><span href="images/rufina.jpg" class="btn btn-primary">View Donation Times</span></p>
+							<span class="lbl">Underwear</span>							
+
 						</div>
 					</a>
-					
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<a class="fh5co-card-item">
