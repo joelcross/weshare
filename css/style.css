@@ -19,6 +19,9 @@ body {
   background: #fff;
 }
 
+.modal-body {
+  padding: 2em !important;
+}
 .map {
   padding-bottom: 50px;
 }
@@ -87,7 +90,6 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #000;
   font-family: "Lato", Arial, sans-serif;
   font-weight: 400;
-  margin: 0 0 20px 0;
 }
 
 ::-webkit-selection {
