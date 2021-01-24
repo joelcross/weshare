@@ -109,7 +109,7 @@
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="#gtco-features">About</a></li>
+						<li><a href="index.html#gtco-features">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>	
 				</div>
