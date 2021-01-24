@@ -23,6 +23,23 @@ body {
   padding-bottom: 50px;
 }
 
+lbl {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-radius: 15px;
+  color: #0098EF;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;
