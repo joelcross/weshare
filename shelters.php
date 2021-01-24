@@ -54,7 +54,26 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
+	
+	<!-- styling for labels in shelters page -->
+	<style>
+		lbl {
+			display: inline-block;
+			line-height: 1;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: baseline;
+			padding: 4px 8px;
+			border-radius: 2px;
+			font-size: 12px;
+			font-weight: 400;
+			border-width: 1px;
+			border-style: solid;
+			background-color: transparent;
+			border-radius: 15px;
+			color: #0098EF;
+		}
+	</style>
 	</head>
 	<body>
 		
@@ -106,26 +125,21 @@
 							<p>234 Brock St, Kingston</p>
 							<p><span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">View Donation Times</span></p>
 							<?php
-                                                                        $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
                                     $locid = 0;
                                     $sql = "select t.name
                                     from   tag t
                                     where  t.id in (select tag_id from locationtag where location_id =  $locid);";
                                     $stmt = $pdo->prepare($sql);   #create the query
                                     $stmt->execute();   #bind the parameters
-
                                     $dom = new DOMDocument('1.0', 'utf-8');
                                     while ($row = $stmt->fetch()) {
 										$element = $dom->createElement('lbl', $row["name"]);
-										
-										$element->addClass('s')
                                         // We insert the new element as root (child of the document)
                                         $dom->appendChild($element);
-                                        
-                                        #echo "</td><td>".$row["name"]."</td></tr>,\n";
                                     }
                                     echo $dom->saveXML();
-                                    ?>
+                            ?>
 						</div>
 					</a>
                 </div>
@@ -139,6 +153,22 @@
 							<h2>Ryndale Transitional Housing</h2>
 							<p>669 Victoria St, Kingston</p>
 							<p><span class="btn btn-primary">View Donation Times</span></p>
+							<?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 1;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                    }
+                                    echo $dom->saveXML();
+                            ?>
 						</div>
 					</a>
                 </div>
@@ -152,6 +182,22 @@
 							<h2>Kingston Interval House</h2>
 							<p>449 Princess St, Kingston</p>
 							<p><span class="btn btn-primary">View Donation Times</span></p>
+							<?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 2;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                    }
+                                    echo $dom->saveXML();
+                            ?>
 						</div>
 					</a>
 				</div>
@@ -164,8 +210,22 @@
 							<h2>Rufina's Bridal</h2>
 							<p>561 1/2 Princess St, Kingston</p>
 							<p><span href="images/rufina.jpg" class="btn btn-primary">View Donation Times</span></p>
-							<span class="lbl">Underwear</span>							
-
+							<?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 3;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                    }
+                                    echo $dom->saveXML();
+                            ?>
 						</div>
 					</a>
 				</div>
@@ -178,6 +238,22 @@
 							<h2>Dawn House</h2>
 							<p>965 Milford Dr, Kingston</p>
 							<p><span class="btn btn-primary">View Donation Times</span></p>
+							<?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 4;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                    }
+                                    echo $dom->saveXML();
+                            ?>
 						</div>
 					</a>
 				</div>
@@ -190,6 +266,22 @@
 							<h2>St. Vincent de Paul Society</h2>
 							<p>85 Stephen St, Kingston</p>
 							<p><span class="btn btn-primary">View Donation Times</span></p>
+							<?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 5;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                    }
+                                    echo $dom->saveXML();
+                            ?>
 						</div>
 					</a>
 				</div>
@@ -202,6 +294,22 @@
 							<h2>Elizabeth Fry Kingston</h2>
 							<p>127 Charles St, Kingston</p>
 							<p><span class="btn btn-primary">View Donation Times</span></p>
+							<?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $locid = 6;
+                                    $sql = "select t.name
+                                    from   tag t
+                                    where  t.id in (select tag_id from locationtag where location_id =  $locid);";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+                                    $dom = new DOMDocument('1.0', 'utf-8');
+                                    while ($row = $stmt->fetch()) {
+										$element = $dom->createElement('lbl', $row["name"]);
+                                        // We insert the new element as root (child of the document)
+                                        $dom->appendChild($element);
+                                    }
+                                    echo $dom->saveXML();
+                            ?>
 						</div>
 					</a>
 				</div>

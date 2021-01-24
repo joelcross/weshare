@@ -1737,6 +1737,7 @@ form label {
 .fh5co-card-item .fh5co-text {
   padding: 0px 10px 10px 20px;
   text-align: center;
+  margin-bottom: 2em;
 }
 .fh5co-card-item .fh5co-text h2, .fh5co-card-item .fh5co-text span {
   text-decoration: none !important;
