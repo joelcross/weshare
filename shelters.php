@@ -95,7 +95,7 @@
 	</nav>
 	<header id="gtco-header" role="banner" style="background-image: url(images/img_6.jpg)"></header> 
 
-	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC4BSvZmJoFcjxmvQ6iL_EsWsLFzQm8upc&callback=initMap" defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=key&callback=initMap" defer></script>
 	<script src="js/project.js"></script>	
 
 	<nav class="gtco-nav" style="background-color:#09C6AB;" role="navigation">
