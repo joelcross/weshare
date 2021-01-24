@@ -341,7 +341,8 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 	}
 	.mt-text {
-		margin-top: 7em;
+		// margin-top: 7em;
+		margin-top: 0em;
 		margin-bottom: 3em;
 		@media screen and (max-width: $screen-sm) {
 			margin-top: 0;
@@ -808,6 +809,7 @@ form {
 #gtco-features {
 	background: $brand-primary;
 	.gtco-heading {
+		
 		h2 {
 			color: $brand-white;
 		}
@@ -1495,6 +1497,7 @@ form {
 		margin-top: 7em;
 	}
 }
+
 .mt-sm {
 	margin-top: 6em;
 	@media screen and (max-width: $screen-sm) {
