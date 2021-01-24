@@ -87,7 +87,7 @@
 			
 			<div class="row">
 				<div class="col-sm-4 col-xs-12">
-					<div id="gtco-logo"><a style="color: #000000;" href="index.html">weshare <em>.</em></a></div>
+					<div id="gtco-logo"><a style="color: #f;" href="index.html">weshare <em>.</em></a></div>
 				 </div>
 			</div>
 			
@@ -97,17 +97,40 @@
 
 	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC4BSvZmJoFcjxmvQ6iL_EsWsLFzQm8upc&callback=initMap" defer></script>
 	<script src="js/project.js"></script>	
-	
-	<div class="gtco-section">
+
+	<nav class="gtco-nav" style="background-color:#09C6AB;" role="navigation">
 		<div class="gtco-container">
+			
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-					<h2>weshare</h2>
-                    <p>Navigate the map to view shelters near you.</p>
-                    <p>Select a shelter to view more information.</p>
+				<div class="col-sm-4 col-xs-12">
+				
+					<div id="gtco-logo"><a href="index.html">weshare <em>.</em></a></div>
+				</div>
+				<div class="col-xs-8 text-right menu-1">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#gtco-features">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>	
 				</div>
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 map">
+		</div>
+	</nav>
+	<div class="gtco-section"  style="background-color:#09C6AB;">	
+		<div class="gtco-container">	
+		<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+						<h2 style="font-weight:bold; padding-bottom:1em; color:white;">weshare</h2>
+						<p style="color:#e5f7c3;">Navigate the map to view shelters near you.</p>
+						<p style="color:#e5f7c3;">Select a shelter to view more information.</p>					
+				</div>
+				</div>
+		</div>
+	</div>
+	</div>	
+	<div class="gtco-section" >
+		<div class="gtco-container">
+			<div class="col-lg-12 col-md-12 col-sm-12 map" style="padding-top: 0;">
 				<div id="map" style="width:100%;height:400px;"></div>
 			</div>
 			<div>
@@ -340,12 +363,36 @@
                                 <figure>
                                     <img src="images/youthshelter.jpg" alt="Image" class="img-responsive">
                                 </figure>
-                                <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="https://kingstonyouthshelter.com/"><h4>Visit Website</h4></a>
+								<h4>Hours</h4>
+									<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 0";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                    
+								<h4>Contact:</h4> 
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 0";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="https://kingstonyouthshelter.com/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -367,11 +414,33 @@
                                     <img src="images/ryndale.jpg" alt="Image" class="img-responsive">
                                 </figure>
                                 <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="https://ryndale.ca/"><h4>Visit Website</h4></a>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 1";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <h4>Contact:</h4> <?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 1";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="https://ryndale.ca/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -393,11 +462,34 @@
                                     <img src="images/intervalhouse.jpg" alt="Image" class="img-responsive">
                                 </figure>
                                 <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="http://kingstonintervalhouse.com/"><h4>Visit Website</h4></a>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 2";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+								<h4>Contact:</h4> 
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 2";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="http://kingstonintervalhouse.com/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -419,11 +511,34 @@
                                     <img src="images/rufina.jpg" alt="Image" class="img-responsive">
                                 </figure>
                                 <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="https://www.rufinasbridal.com/"><h4>Visit Website</h4></a>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 3";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+								<h4>Contact:</h4> 
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 3";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="https://www.rufinasbridal.com/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -445,11 +560,34 @@
                                     <img src="images/dawnhouse.jpg" alt="Image" class="img-responsive">
                                 </figure>
                                 <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="https://www.dawnhouse.ca/"><h4>Visit Website</h4></a>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 4";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+								<h4>Contact:</h4>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 4";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="https://www.dawnhouse.ca/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -471,11 +609,34 @@
                                     <img src="images/stvincent.jpg" alt="Image" class="img-responsive">
                                 </figure>
                                 <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="http://www.svdpkingston.com/"><h4>Visit Website</h4></a>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 5";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+								<h4>Contact:</h4> 
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 5";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="http://www.svdpkingston.com/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -497,11 +658,34 @@
                                     <img src="images/elizabethfry.jpg" alt="Image" class="img-responsive">
                                 </figure>
                                 <h4>Hours</h4>
-                                    <p>Sun: 8:00am - 8:00pm</p>
-                                    <p>Mon-Fri: 8:00am - 8:00pm</p>
-                                    <p>Sat: 8:00am - 8:00pm</p>
-                                <h4>Contact:</h4> <p><a href="tel:000-000-0000">(000) 000-0000</a></p>
-                                <a href="https://www.efrykingston.ca/"><h4>Visit Website</h4></a>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select Hours
+                                    from  location where id = 6";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["Hours"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+								<h4>Contact:</h4>
+								<?php
+									$pdo = new PDO('mysql:host=localhost;dbname=donation_locations', "root", "");
+                                    $sql = "select PhoneNumber
+                                    from  location where id = 6";
+                                    $stmt = $pdo->prepare($sql);   #create the query
+                                    $stmt->execute();   #bind the parameters
+									$dom = new DOMDocument('1.0', 'utf-8');
+									$row = $stmt->fetch();
+                                    $element = $dom->createElement('label', $row["PhoneNumber"]);
+                                    // We insert the new element as root (child of the document)
+                                    $dom->appendChild($element);
+									echo $dom->saveXML();
+									?>
+                                <a href="https://www.efrykingston.ca/"><h4 style="color:#069; text-decoration: underline;">Visit Website</h4></a>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
