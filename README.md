@@ -3,7 +3,7 @@ This project was created and designed by Catheirne Wu, Emily Zhao and Joel Cross
 
 
 ## weshare
-Welcome to weshare! A clothing donation resource platform.
+Weshare is a clothing donation resource platform. We aim to reduce the amount of clothing in landfills by getting it to those who truly need it.
 
 
 ## About weshare
@@ -11,7 +11,7 @@ Welcome to weshare! A clothing donation resource platform.
 Here at weshare, we aspire to help others by listening to their specific clothing needs and connecting them with those who are able to provide.
 ### How we Fulfill our Mission
 We partner with donation centres in your community to report their most needed clothing items.
-We provide all the necessary information to connect you to them.
+We provide all the necessary information in one place to connect you to them.
 Ease your mind, knowing that your donations make an impact.
 
 
@@ -26,10 +26,10 @@ Database is built using SQL, linked using PHP.
 
 ## Growth
 ### Our Plans for the Future include:
-Gaining partnerships in our city and beyond.
-Storing partner's information in the SQL database.
-Build an interface for our partners, allowing them to easily update their own donation information.
-Expand our platform in the form of a mobile application.
+- Gaining partnerships in our city and beyond.
+- Storing partner's information in the SQL database.
+- Build an interface for our partners, allowing them to easily update their own donation information.
+- Expand our platform in the form of a mobile application.
 
 ## Thank you!
 
