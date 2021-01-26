@@ -1,5 +1,5 @@
 # qhacks2021
-This project was created and designed by Catheirne Wu, Emily Zhao and Joel Cross in a 36-hour hacakthon, QHacks on January 22, 2021.
+This project was created and designed by Catherine Wu, Emily Zhao and Joel Cross in a 36-hour hacakthon, QHacks on January 22, 2021.
 
 
 ## weshare
